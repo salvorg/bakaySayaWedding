@@ -7,18 +7,24 @@ gsap.registerPlugin(Observer);
 const ObserverCarousel = () => {
     const [state, setState] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
-    const headers = ["Scroll down", "Animated with GSAP", "GreenSock", "Animation platform", "Keep scrolling"]
+    const headers = [
+        "Бакай и Жансая",
+        "Женимся по любви",
+        "Место проведения",
+        "Осталось до начала:",
+        "Форма"
+    ];
     const sections = document.querySelectorAll("section");
     const images = document.querySelectorAll(".bg");
 
     const moveDown = (state) => {
-        if (state > 0) {
+        if (state > 0 && isAnimating) {
             setState(state - 1);
         }
     }
 
     const moveUp = (state) => {
-        if (state < 4) {
+        if (state < 4 && isAnimating) {
             setState(state + 1);
         }
     }
