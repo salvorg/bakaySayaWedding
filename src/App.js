@@ -1,11 +1,12 @@
-import './App.css';
-import InviteBlock from "./components/InviteBlock";
+import './styles/global.scss';
+import React from "react";
+import ObserverCarousel from "./components/ObserverCarousel";
 
 function App() {
   return (
-    <div className="App">
-      <InviteBlock />
-    </div>
+    <>
+        <ObserverCarousel />
+    </>
   );
 }
 
