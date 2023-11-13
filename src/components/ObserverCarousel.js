@@ -17,14 +17,18 @@ const ObserverCarousel = () => {
     const sections = document.querySelectorAll("section");
     const images = document.querySelectorAll(".bg");
 
+    console.log('state: ', state);
+
     const moveDown = (state) => {
-        if (state > 0 && isAnimating) {
+        console.log('state down: ', state);
+        if (state > 0) {
             setState(state - 1);
         }
     }
 
     const moveUp = (state) => {
-        if (state < 4 && isAnimating) {
+        console.log('state up: ', state);
+        if (state < 4) {
             setState(state + 1);
         }
     }
@@ -39,28 +43,36 @@ const ObserverCarousel = () => {
                 .set(sections, {visibility: "hidden"})
                 .set(sections[state], {visibility: "visible"})
                 .fromTo(images[state], {opacity: 0}, {opacity: 1, duration: 0.6})
-                .call(() => setIsAnimating(false));
+                .call(() => {setIsAnimating(false);
+                    // setScrollLocked(true);
+                });
 
             gsap.set(sections, {visibility: "hidden"});
             gsap.set(sections[state], {visibility: "visible"});
         }
     }, [state]);
 
-    Observer.create({
-        target: window,
-        type: "wheel,touch,scroll,pointer",
-        onUp: () => moveUp(state),
-        onDown: () => moveDown(state),
-        wheelSpeed: -1,
-    });
+    // Observer.create({
+    //     target: window,
+    //     type: "pointer",
+    //     onUp: () => {
+    //         if (state) {
+    //             moveUp(state);
+    //         }
+    //     },
+    //     onDown: () => {
+    //         if (state) {
+    //             moveDown(state);
+    //         }
+    //     },
+    //     wheelSpeed: -1,
+    // });
 
     return (
         <main>
             <header>
-                <div>Animated Sections</div>
-                <div>
-                    <a href="https://codepen.io/BrianCross/pen/PoWapLP">Original By Brian</a>
-                </div>
+                <div>Бакай</div>
+                <div>Жансая</div>
             </header>
             {Array.from({length: 5}, (_, index) => (
                 <section
@@ -70,57 +82,14 @@ const ObserverCarousel = () => {
                     <div className="outer">
                         <div className="inner">
                             <div className="bg">
+                                <button className="move-up-btn type3" onClick={() => moveDown(state)}>перейти вверх</button>
                                 <h2 className="section-heading">{headers[index]}</h2>
+                                <button className="move-down-btn type3" onClick={() => moveUp(state)}>перейти вниз</button>
                             </div>
                         </div>
                     </div>
                 </section>
             ))}
-            {/*<section className="section section-1">*/}
-            {/*    <div className="outer">*/}
-            {/*        <div className="inner">*/}
-            {/*            <div className="bg one">*/}
-            {/*                <h2 className="section-heading">Scroll down</h2>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</section>*/}
-            {/*<section className="section section-2">*/}
-            {/*    <div className="outer">*/}
-            {/*        <div className="inner">*/}
-            {/*            <div className="bg">*/}
-            {/*                <h2 className="section-heading"></h2>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</section>*/}
-            {/*<section className="section section-3">*/}
-            {/*    <div className="outer">*/}
-            {/*        <div className="inner">*/}
-            {/*            <div className="bg">*/}
-            {/*                <h2 className="section-heading">GreenSock</h2>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</section>*/}
-            {/*<section className="section section-4">*/}
-            {/*    <div className="outer">*/}
-            {/*        <div className="inner">*/}
-            {/*            <div className="bg">*/}
-            {/*                <h2 className="section-heading">Animation platform</h2>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</section>*/}
-            {/*<section className="section section-5">*/}
-            {/*    <div className="outer">*/}
-            {/*        <div className="inner">*/}
-            {/*            <div className="bg">*/}
-            {/*                <h2 className="section-heading">Keep scrolling</h2>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</section>*/}
         </main>
     );
 };
