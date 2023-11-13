@@ -82,9 +82,9 @@ const ObserverCarousel = () => {
                     <div className="outer">
                         <div className="inner">
                             <div className="bg">
-                                <button className="move-up-btn type3" onClick={() => moveDown(state)}>перейти вверх</button>
+                                {state === 0 ? null :  <button className="move-up-btn type3" onClick={() => moveDown(state)}>перейти вверх</button>}
                                 <h2 className="section-heading">{headers[index]}</h2>
-                                <button className="move-down-btn type3" onClick={() => moveUp(state)}>перейти вниз</button>
+                                {state === 4 ? null :  <button className="move-down-btn type3" onClick={() => moveUp(state)}>перейти вниз</button>}
                             </div>
                         </div>
                     </div>
