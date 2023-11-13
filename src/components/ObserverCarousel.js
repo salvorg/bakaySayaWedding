@@ -29,7 +29,7 @@ const ObserverCarousel = () => {
 
     const moveUp = (state) => {
         console.log('state up: ', state);
-        if (state < 4) {
+        if (state < 3) {
             setState(state + 1);
         }
     }
@@ -54,22 +54,6 @@ const ObserverCarousel = () => {
 
     return (
         <main>
-            {/*{Array.from({length: 5}, (_, index) => (*/}
-            {/*    <section*/}
-            {/*        key={index}*/}
-            {/*        className={`section section-${index + 1}`}*/}
-            {/*    >*/}
-            {/*        <div className="outer">*/}
-            {/*            <div className="inner">*/}
-            {/*                <div className="bg">*/}
-            {/*                    {state === 0 ? null :  <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>}*/}
-            {/*                    <h2 className="section-heading">{headers[index]}</h2>*/}
-            {/*                    {state === 4 ? null :  <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>}*/}
-            {/*                </div>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    </section>*/}
-            {/*))}*/}
             <section
                 className={`section section-1`}
             >
@@ -116,24 +100,24 @@ const ObserverCarousel = () => {
                         <div className="bg">
                             <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>
                             <h2 className="section-heading">{headers[3]}</h2>
-                            <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section
-                className={`section section-5`}
-            >
-                <div className="outer">
-                    <div className="inner">
-                        <div className="bg">
-                            <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>
-                            <h2 className="section-heading">{headers[4]}</h2>
                             <DateTimer />
                         </div>
                     </div>
                 </div>
             </section>
+            {/*<section*/}
+            {/*    className={`section section-5`}*/}
+            {/*>*/}
+            {/*    <div className="outer">*/}
+            {/*        <div className="inner">*/}
+            {/*            <div className="bg">*/}
+            {/*                <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>*/}
+            {/*                <h2 className="section-heading">{headers[4]}</h2>*/}
+            {/*                */}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</section>*/}
         </main>
     );
 };

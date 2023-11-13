@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 const DateTimer = () => {
-    const countDownDate = new Date('Nov 30, 2023 00:00:00').getTime();
+    const countDownDate = new Date('Dec 02, 2023 17:00:00').getTime();
     const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining());
 
     useEffect(() => {
@@ -12,14 +12,18 @@ const DateTimer = () => {
         return () => clearInterval(timer);
     }, []);
 
+    function addLeadingZero(value) {
+        return value < 10 ? `0${value}` : value;
+    }
+
     function calculateTimeRemaining() {
         const now = new Date().getTime();
         const distance = countDownDate - now;
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const days = addLeadingZero(Math.floor(distance / (1000 * 60 * 60 * 24)));
+        const hours = addLeadingZero(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+        const minutes = addLeadingZero(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+        const seconds = addLeadingZero(Math.floor((distance % (1000 * 60)) / 1000));
 
         return {
             days,
