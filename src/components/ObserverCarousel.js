@@ -44,7 +44,6 @@ const ObserverCarousel = () => {
                 .set(sections[state], {visibility: "visible"})
                 .fromTo(images[state], {opacity: 0}, {opacity: 1, duration: 0.6})
                 .call(() => {setIsAnimating(false);
-                    // setScrollLocked(true);
                 });
 
             gsap.set(sections, {visibility: "hidden"});
@@ -70,10 +69,10 @@ const ObserverCarousel = () => {
 
     return (
         <main>
-            <header>
-                <div>Бакай</div>
-                <div>Жансая</div>
-            </header>
+            {/*<header>*/}
+            {/*    <div>Бакай</div>*/}
+            {/*    <div>Жансая</div>*/}
+            {/*</header>*/}
             {Array.from({length: 5}, (_, index) => (
                 <section
                     key={index}
@@ -82,9 +81,9 @@ const ObserverCarousel = () => {
                     <div className="outer">
                         <div className="inner">
                             <div className="bg">
-                                {state === 0 ? null :  <button className="move-up-btn type3" onClick={() => moveDown(state)}>перейти вверх</button>}
+                                {state === 0 ? null :  <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>}
                                 <h2 className="section-heading">{headers[index]}</h2>
-                                {state === 4 ? null :  <button className="move-down-btn type3" onClick={() => moveUp(state)}>перейти вниз</button>}
+                                {state === 4 ? null :  <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>}
                             </div>
                         </div>
                     </div>
