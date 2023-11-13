@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {gsap} from "gsap";
 import {Observer} from "gsap/Observer";
+import DateTimer from "./DateTimer";
 
 gsap.registerPlugin(Observer);
 
@@ -53,22 +54,86 @@ const ObserverCarousel = () => {
 
     return (
         <main>
-            {Array.from({length: 5}, (_, index) => (
-                <section
-                    key={index}
-                    className={`section section-${index + 1}`}
-                >
-                    <div className="outer">
-                        <div className="inner">
-                            <div className="bg">
-                                {state === 0 ? null :  <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>}
-                                <h2 className="section-heading">{headers[index]}</h2>
-                                {state === 4 ? null :  <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>}
-                            </div>
+            {/*{Array.from({length: 5}, (_, index) => (*/}
+            {/*    <section*/}
+            {/*        key={index}*/}
+            {/*        className={`section section-${index + 1}`}*/}
+            {/*    >*/}
+            {/*        <div className="outer">*/}
+            {/*            <div className="inner">*/}
+            {/*                <div className="bg">*/}
+            {/*                    {state === 0 ? null :  <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>}*/}
+            {/*                    <h2 className="section-heading">{headers[index]}</h2>*/}
+            {/*                    {state === 4 ? null :  <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>}*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    </section>*/}
+            {/*))}*/}
+            <section
+                className={`section section-1`}
+            >
+                <div className="outer">
+                    <div className="inner">
+                        <div className="bg">
+                            <h2 className="section-heading">{headers[0]}</h2>
+                            <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>
                         </div>
                     </div>
-                </section>
-            ))}
+                </div>
+            </section>
+            <section
+                className={`section section-2`}
+            >
+                <div className="outer">
+                    <div className="inner">
+                        <div className="bg">
+                            <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>
+                            <h2 className="section-heading">{headers[1]}</h2>
+                    <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section
+                className={`section section-3`}
+            >
+                <div className="outer">
+                    <div className="inner">
+                        <div className="bg">
+                           <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>
+                            <h2 className="section-heading">{headers[2]}</h2>
+                            <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section
+                className={`section section-4`}
+            >
+                <div className="outer">
+                    <div className="inner">
+                        <div className="bg">
+                            <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>
+                            <h2 className="section-heading">{headers[3]}</h2>
+                            <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section
+                className={`section section-5`}
+            >
+                <div className="outer">
+                    <div className="inner">
+                        <div className="bg">
+                            <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>
+                            <h2 className="section-heading">{headers[4]}</h2>
+                            <DateTimer />
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     );
 };
