@@ -69,10 +69,14 @@ const ObserverCarousel = () => {
 
     return (
         <main>
-            {/*<header>*/}
-            {/*    <div>Бакай</div>*/}
-            {/*    <div>Жансая</div>*/}
-            {/*</header>*/}
+            <header>
+                {/*<audio src="https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse" />*/}
+                {/*<audio controls>*/}
+                {/*    <source src="https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse" type="audio/mp3" />*/}
+                {/*</audio>*/}
+                {/*<div>Бакай</div>*/}
+                {/*<div>Жансая</div>*/}
+            </header>
             {Array.from({length: 5}, (_, index) => (
                 <section
                     key={index}
