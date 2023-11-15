@@ -1,6 +1,8 @@
 .timer-box .item {
   position: relative;
-  background-image: repeating-linear-gradient(to right bottom, #000000 0px, #000000 1px, transparent 3px, transparent 8px);
+  //background-image: repeating-linear-gradient(to right bottom, #000000 0px, #000000 1px, transparent 3px, transparent 8px);
+  background-color: darkgray;
+  border-radius: 5px;
 }
 
 .timer-box {
@@ -18,21 +20,21 @@
 #second {
   font-family: "Cormorant Garamond", serif;
   font-size: xxx-large;
-  font-weight: bold;
+  color: hsl(0, 0%, 90%);
 }
 
-.timer-box .item::before {
-  position: absolute;
-  width: 0;
-  height: 40px;
-  background-color: #212121;
-  content: '';
-  left: -10px;
-  top: 50%;
-  transform: translate(0, -50%);
-}
+//.timer-box .item::before {
+//  position: absolute;
+//  width: 6px;
+//  height: 20px;
+//  background-color: hsl(0, 0%, 80%);
+//  content: '';
+//  left: 0;
+//  top: 50%;
+//  transform: translate(0, -50%);
+//}
 
-.timer-box .item::after {
-  left: unset;
-  right: 0;
-}
+//.timer-box .item::after {
+//  left: unset;
+//  right: 0;
+//}
