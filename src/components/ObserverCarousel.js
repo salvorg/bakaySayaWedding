@@ -85,7 +85,7 @@ const ObserverCarousel = () => {
                     <div className="inner">
                         <div className="bg">
                            <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>
-                            <h2 className="section-heading">{headers[2]}</h2>
+                            <h2 className="section-heading">Royal Hall</h2>
                             <p>Адрес: с.Кок-Жар, ул. Мадиева 18</p>
                             <MapComponent />
                             <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>
