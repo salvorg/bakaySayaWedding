@@ -2,4 +2,23 @@
 @use "partials/observer-carousel";
 @use "partials/date-timer";
 @use "partials/invite-form";
+@use "partials/guest-list";
 @import '~leaflet/dist/leaflet.css';
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: "Cormorant Garamond", serif;
+  text-transform: uppercase;
+}

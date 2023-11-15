@@ -1,6 +1,8 @@
-.main-block {
+.invite-form-main-block {
   display: flex;
   flex-direction: column;
+  color: white;
+  font-weight: bold;
 
   & input {
     padding: 5px;
