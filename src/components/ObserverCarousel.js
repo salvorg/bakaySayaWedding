@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import {gsap} from "gsap";
 import {Observer} from "gsap/Observer";
 import DateTimer from "./DateTimer";
+import MapComponent from "./MapComponent";
+import InviteForm from "./InviteForm";
 
 gsap.registerPlugin(Observer);
 
@@ -9,7 +11,7 @@ const ObserverCarousel = () => {
     const [state, setState] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
     const headers = [
-        "Бакай и Жансая",
+        "Свадьба Бакай и Жансая",
         "Женимся по любви",
         "Место проведения",
         "Осталось до начала:",
@@ -18,17 +20,13 @@ const ObserverCarousel = () => {
     const sections = document.querySelectorAll("section");
     const images = document.querySelectorAll(".bg");
 
-    console.log('state: ', state);
-
     const moveDown = (state) => {
-        console.log('state down: ', state);
         if (state > 0) {
             setState(state - 1);
         }
     }
 
     const moveUp = (state) => {
-        console.log('state up: ', state);
         if (state < 3) {
             setState(state + 1);
         }
@@ -60,7 +58,7 @@ const ObserverCarousel = () => {
                 <div className="outer">
                     <div className="inner">
                         <div className="bg">
-                            <h2 className="section-heading">{headers[0]}</h2>
+                            <h2 className="section-heading">Свадьба <br /> Бакая и Жансаи</h2>
                             <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>
                         </div>
                     </div>
@@ -74,7 +72,8 @@ const ObserverCarousel = () => {
                         <div className="bg">
                             <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>
                             <h2 className="section-heading">{headers[1]}</h2>
-                    <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>
+                            <InviteForm />
+                            <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>
                         </div>
                     </div>
                 </div>
@@ -87,6 +86,8 @@ const ObserverCarousel = () => {
                         <div className="bg">
                            <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>
                             <h2 className="section-heading">{headers[2]}</h2>
+                            <p>Адрес: с.Кок-Жар, ул. Мадиева 18</p>
+                            <MapComponent />
                             <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>
                         </div>
                     </div>
@@ -105,19 +106,6 @@ const ObserverCarousel = () => {
                     </div>
                 </div>
             </section>
-            {/*<section*/}
-            {/*    className={`section section-5`}*/}
-            {/*>*/}
-            {/*    <div className="outer">*/}
-            {/*        <div className="inner">*/}
-            {/*            <div className="bg">*/}
-            {/*                <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>*/}
-            {/*                <h2 className="section-heading">{headers[4]}</h2>*/}
-            {/*                */}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</section>*/}
         </main>
     );
 };
