@@ -1,0 +1,14 @@
+.main-block {
+  display: flex;
+  flex-direction: column;
+
+  & input {
+    padding: 5px;
+    margin: 10px 5px;
+  }
+
+  & button {
+    padding: 5px;
+    margin-top: 10px;
+  }
+}
