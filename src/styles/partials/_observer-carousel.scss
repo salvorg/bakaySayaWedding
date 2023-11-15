@@ -20,6 +20,10 @@ h2 {
   max-height: 140px;
 }
 
+.main {
+  position: relative;
+}
+
 header {
   position: fixed;
   display: flex;
@@ -27,7 +31,6 @@ header {
   justify-content: space-between;
   padding: 0 5%;
   width: 100%;
-  z-index: 3;
   height: 7em;
   font-family: "Bebas Neue", sans-serif;
   font-size: clamp(0.66rem, 2vw, 1rem);

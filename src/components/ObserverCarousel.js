@@ -4,6 +4,7 @@ import {Observer} from "gsap/Observer";
 import DateTimer from "./DateTimer";
 import MapComponent from "./MapComponent";
 import InviteForm from "./InviteForm";
+import Player from "./Player";
 
 gsap.registerPlugin(Observer);
 
@@ -51,7 +52,8 @@ const ObserverCarousel = () => {
     }, [state]);
 
     return (
-        <main>
+        <main className="main">
+            <Player />
             <section
                 className={`section section-1`}
             >

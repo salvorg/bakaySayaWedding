@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
     "axios": "^1.6.2",
     "gsap": "^3.12.2",
     "leaflet": "^1.9.4",
