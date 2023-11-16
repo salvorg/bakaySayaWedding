@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {gsap} from "gsap";
 import {Observer} from "gsap/Observer";
-import DateTimer from "./DateTimer";
-import MapComponent from "./MapComponent";
-import InviteForm from "./InviteForm";
-import Player from "./Player";
+import DateTimer from "../components/DateTimer";
+import MapComponent from "../components/MapComponent";
+import InviteForm from "../components/InviteForm";
+import Player from "../components/Player";
 
 gsap.registerPlugin(Observer);
 
@@ -42,7 +42,7 @@ const ObserverCarousel = () => {
             tl.to(images[state], {opacity: 0, duration: 0.1})
                 .set(sections, {visibility: "hidden"})
                 .set(sections[state], {visibility: "visible"})
-                .fromTo(images[state], {opacity: 0}, {opacity: 1, duration: 0.6})
+                .fromTo(images[state], {opacity: 0}, {opacity: 1, duration: 0.1})
                 .call(() => {setIsAnimating(false);
                 });
 
@@ -72,7 +72,7 @@ const ObserverCarousel = () => {
                 <div className="outer">
                     <div className="inner">
                         <div className="bg">
-                            <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>
+                            <button className="move-up-btn btn-swipe exclude-swipe" onClick={() => moveDown(state)}>перейти вверх</button>
                             <h2 className="section-heading">{headers[1]}</h2>
                             <InviteForm />
                             <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>

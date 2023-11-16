@@ -4,6 +4,8 @@
 @use "partials/invite-form";
 @use "partials/guest-list";
 @use "partials/player";
+@use "partials/main-page";
+@use "partials/test";
 @import '~leaflet/dist/leaflet.css';
 
 * {

@@ -9,32 +9,20 @@ $bg-gradient: linear-gradient(
 $btnUpColor:  hsl(0, 0%, 80%);
 
 h2 {
-  font-size: clamp(1rem, 5vw, 5rem);
+  font-size: clamp(1rem, 2vw, 2rem);
   font-weight: 400;
   text-align: center;
   letter-spacing: 0.5em;
   margin-right: -0.5em;
   color: hsl(0, 0, 80%);
-  width: 90vw;
+  width: 80vw;
   max-width: 1200px;
   max-height: 140px;
+  margin-top: 15vh;
 }
 
 .main {
   position: relative;
-}
-
-header {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 5%;
-  width: 100%;
-  height: 7em;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(0.66rem, 2vw, 1rem);
-  letter-spacing: 0.5em;
 }
 
 section {
@@ -71,7 +59,6 @@ section {
     .move-up-btn,
     .move-down-btn {
       margin-top: 5vh;
-      margin-bottom: 5vh;
       position: relative;
       padding: 1em 1.5em;
       border: none;
@@ -93,6 +80,11 @@ section {
           border: 2px solid;
           transition: all 0.9s ease;
           border-radius: 2px;
+        }
+
+        &.exclude-swipe::after,
+        &.exclude-swipe::before {
+          transition: all 0.3s;
         }
 
         &.btn-swipe::after {
@@ -121,7 +113,7 @@ section {
     }
 
     .move-down-btn {
-      margin-bottom: 5vh;
+      margin-bottom: 15vh;
     }
   }
 }
