@@ -94,6 +94,9 @@ const ObserverCarousel = () => {
                                     <div className="inner">
                                         <div className="bg">
                                             <h2 className="section-heading">Свадьба <br/> Бакая и Жансаи</h2>
+                                            <h3 className="section-heading">Дорогие друзья и родные!
+                                                В нашей жизни скоро произойдет счастливое и значимое событие, которое мы с вами хотим поделиться! Мы с удовольствием приглашаем вас принять участие в новой главе нашей жизни и отпраздновать с нами нашу свадьбу.
+                                            </h3>
                                             <button className="move-down-btn btn-swipe"
                                                     onClick={() => moveUp(state)}>перейти вниз
                                             </button>
@@ -110,7 +113,7 @@ const ObserverCarousel = () => {
                                             <button className="move-up-btn btn-swipe exclude-swipe"
                                                     onClick={() => moveDown(state)}>перейти вверх
                                             </button>
-                                            <h2 className="section-heading">Пожалуйста <br/> Подтвердите свое присутствие
+                                            <h2 className="section-heading">Ваше участие очень важно для нас <br /> и мы будем очень рады провести <br /> это специальное время с вами. <br /> Пожалуйста, подтвердите свое присутствие!
                                             </h2>
                                             <InviteForm/>
                                             <button className="move-down-btn btn-swipe"

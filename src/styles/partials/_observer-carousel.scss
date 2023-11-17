@@ -21,6 +21,17 @@ h2 {
   margin-top: 5vh;
 }
 
+h3 {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  line-height: 2rem;
+  letter-spacing: 0.3em;
+  text-align: center;
+  margin-top: 2vh;
+  width: 60vw;
+  color: hsl(0, 0, 80%);
+  max-width: 400px;
+}
+
 .section-1 h2 {
   margin-top: 15vh;
 }
@@ -122,25 +133,25 @@ section {
   visibility: visible;
 
   .bg {
-    background-image: $bg-gradient, url("../../../public/1.jpeg");
+    background-image: $bg-gradient, url("../../assets/1.jpeg");
   }
 }
 
 .section-2 {
   .bg {
-    background-image: $bg-gradient, url("../../../public/2.jpeg");
+    background-image: $bg-gradient, url("../../assets/2.jpeg");
   }
 }
 
 .section-3 {
   .bg {
-    background-image: $bg-gradient, url("../../../public/royal.jpg");
+    background-image: $bg-gradient, url("../../assets/royal.jpg");
   }
 }
 
 .section-4 {
   .bg {
-    background-image: $bg-gradient, url("../../../public/royal2.jpg");
+    background-image: $bg-gradient, url("../../assets/royal2.jpg");
   }
 }
 
