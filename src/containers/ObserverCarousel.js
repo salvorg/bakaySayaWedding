@@ -9,6 +9,7 @@ import Player from "../components/Player";
 gsap.registerPlugin(Observer);
 
 const ObserverCarousel = () => {
+    const [isInvited, setIsInvited] = useState(false);
     const [state, setState] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
     const headers = [
@@ -43,7 +44,8 @@ const ObserverCarousel = () => {
                 .set(sections, {visibility: "hidden"})
                 .set(sections[state], {visibility: "visible"})
                 .fromTo(images[state], {opacity: 0}, {opacity: 1, duration: 0.1})
-                .call(() => {setIsAnimating(false);
+                .call(() => {
+                    setIsAnimating(false);
                 });
 
             gsap.set(sections, {visibility: "hidden"});
@@ -51,64 +53,93 @@ const ObserverCarousel = () => {
         }
     }, [state]);
 
+    const clicked = () => {
+        setIsInvited(true);
+    }
+
     return (
-        <main className="main">
-            <Player />
-            <section
-                className={`section section-1`}
-            >
-                <div className="outer">
-                    <div className="inner">
-                        <div className="bg">
-                            <h2 className="section-heading">Свадьба <br /> Бакая и Жансаи</h2>
-                            <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section
-                className={`section section-2`}
-            >
-                <div className="outer">
-                    <div className="inner">
-                        <div className="bg">
-                            <button className="move-up-btn btn-swipe exclude-swipe" onClick={() => moveDown(state)}>перейти вверх</button>
-                            <h2 className="section-heading">{headers[1]}</h2>
-                            <InviteForm />
-                            <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section
-                className={`section section-3`}
-            >
-                <div className="outer">
-                    <div className="inner">
-                        <div className="bg">
-                           <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>
-                            <h2 className="section-heading">Royal Hall</h2>
-                            <p>Адрес: с.Кок-Жар, ул. Мадиева 18</p>
-                            <MapComponent />
-                            <button className="move-down-btn btn-swipe" onClick={() => moveUp(state)}>перейти вниз</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section
-                className={`section section-4`}
-            >
-                <div className="outer">
-                    <div className="inner">
-                        <div className="bg">
-                            <button className="move-up-btn btn-swipe" onClick={() => moveDown(state)}>перейти вверх</button>
-                            <h2 className="section-heading">{headers[3]}</h2>
-                            <DateTimer />
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
+        <>
+            {
+                !isInvited ?
+                    (
+                        <>
+                            <div className="invite-block" onClick={clicked}>
+                            </div>
+                            <p className="invite-block-text">Нажмите на конверт, <br /> чтобы открыть приглашение</p>
+                        </>
+                    ) : (
+                        <main className="main">
+                            <Player/>
+                            <section
+                                className={`section section-1`}
+                            >
+                                <div className="outer">
+                                    <div className="inner">
+                                        <div className="bg">
+                                            <h2 className="section-heading">Свадьба <br/> Бакая и Жансаи</h2>
+                                            <button className="move-down-btn btn-swipe"
+                                                    onClick={() => moveUp(state)}>перейти вниз
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section
+                                className={`section section-2`}
+                            >
+                                <div className="outer">
+                                    <div className="inner">
+                                        <div className="bg">
+                                            <button className="move-up-btn btn-swipe exclude-swipe"
+                                                    onClick={() => moveDown(state)}>перейти вверх
+                                            </button>
+                                            <h2 className="section-heading">{headers[1]}</h2>
+                                            <InviteForm/>
+                                            <button className="move-down-btn btn-swipe"
+                                                    onClick={() => moveUp(state)}>перейти вниз
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section
+                                className={`section section-3`}
+                            >
+                                <div className="outer">
+                                    <div className="inner">
+                                        <div className="bg">
+                                            <button className="move-up-btn btn-swipe"
+                                                    onClick={() => moveDown(state)}>перейти вверх
+                                            </button>
+                                            <h2 className="section-heading">Royal Hall</h2>
+                                            <p>Адрес: с.Кок-Жар, ул. Мадиева 18</p>
+                                            <MapComponent/>
+                                            <button className="move-down-btn btn-swipe"
+                                                    onClick={() => moveUp(state)}>перейти вниз
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section
+                                className={`section section-4`}
+                            >
+                                <div className="outer">
+                                    <div className="inner">
+                                        <div className="bg">
+                                            <button className="move-up-btn btn-swipe"
+                                                    onClick={() => moveDown(state)}>перейти вверх
+                                            </button>
+                                            <h2 className="section-heading">{headers[3]}</h2>
+                                            <DateTimer/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </main>
+                    )
+            }
+        </>
     );
 };
 

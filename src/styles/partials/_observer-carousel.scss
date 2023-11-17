@@ -52,10 +52,6 @@ section {
     background-size: cover;
     background-position: center;
 
-    .clip-text {
-      overflow: hidden;
-    }
-
     .move-up-btn,
     .move-down-btn {
       margin-top: 5vh;
@@ -122,33 +118,25 @@ section {
   visibility: visible;
 
   .bg {
-    background-image: $bg-gradient,
-    //url("https://images.unsplash.com/photo-1617478755490-e21232a5eeaf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNzU1NjM5NA&ixlib=rb-1.2.1&q=75&w=1920");
-    url("../../../public/1.jpeg");
+    background-image: $bg-gradient, url("../../../public/1.jpeg");
   }
 }
 
 .section-2 {
   .bg {
-    background-image: $bg-gradient,
-    //url("https://images.unsplash.com/photo-1617128734662-66da6c1d3505?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNzc3NTM3MA&ixlib=rb-1.2.1&q=75&w=1920");
-    url("../../../public/2.jpeg");
+    background-image: $bg-gradient, url("../../../public/2.jpeg");
   }
 }
 
 .section-3 {
   .bg {
-    background-image: $bg-gradient,
-    //url("https://images.unsplash.com/photo-1617438817509-70e91ad264a5?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNzU2MDk4Mg&ixlib=rb-1.2.1&q=75&w=1920");
-    url("../../../public/royal.jpg");
+    background-image: $bg-gradient, url("../../../public/royal.jpg");
   }
 }
 
 .section-4 {
   .bg {
-    background-image: $bg-gradient,
-    //url("https://images.unsplash.com/photo-1617412327653-c29093585207?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNzU2MDgzMQ&ixlib=rb-1.2.1&q=75&w=1920");
-    url("../../../public/royal2.jpg");
+    background-image: $bg-gradient, url("../../../public/royal2.jpg");
   }
 }
 
@@ -162,4 +150,31 @@ section {
 
 h2 * {
   will-change: transform;
+}
+
+.invite-block {
+  width: 400px;
+  height: 500px;
+  margin: 15vh auto 30px;
+  background: url("../../assets/evolve.webp") no-repeat;
+  background-size: 100% 100%;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.invite-block-text {
+  margin: 0;
+  text-align: center;
+  font-size: 2rem;
+  animation: blink 2s infinite;
 }
