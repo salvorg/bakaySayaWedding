@@ -8,7 +8,7 @@ const MapComponent = () => {
     const center = [42.824342, 74.642409];
 
     return (
-        <div style={{ height: '400px', width: '400px', border: '5px solid #fff5' }}>
+        <div style={{ width: '40vh', height: '40vh', maxHeight: '400px', maxWidth: '400px', border: '5px solid #fff5' }}>
             <MapContainer center={center} zoom={14} style={{ height: '100%', width: '100%' }} scrollWheelZoom={false}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

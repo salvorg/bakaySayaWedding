@@ -1,24 +1,31 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {gsap} from "gsap";
 import {Observer} from "gsap/Observer";
 import DateTimer from "../components/DateTimer";
 import MapComponent from "../components/MapComponent";
 import InviteForm from "../components/InviteForm";
-import Player from "../components/Player";
+import {PauseIcon, PlayIcon} from "@heroicons/react/20/solid";
+import audioFile from "../assets/audio.mp3";
 
 gsap.registerPlugin(Observer);
 
 const ObserverCarousel = () => {
+    const [play, setPlay] = useState(false);
     const [isInvited, setIsInvited] = useState(false);
     const [state, setState] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
-    const headers = [
-        "Свадьба Бакай и Жансая",
-        "Женимся по любви",
-        "Место проведения",
-        "Осталось до начала:",
-        "Форма"
-    ];
+
+    const ref = useRef(null);
+
+    const toggleAudio = () => {
+        if (play) {
+            ref.current.pause();
+            setPlay(false);
+        } else {
+            ref.current.play();
+            setPlay(true);
+        }
+    };
     const sections = document.querySelectorAll("section");
     const images = document.querySelectorAll(".bg");
 
@@ -55,21 +62,31 @@ const ObserverCarousel = () => {
 
     const clicked = () => {
         setIsInvited(true);
+        toggleAudio();
     }
 
     return (
         <>
+            <div>
+                <button type="button" className="player-btn" onClick={toggleAudio}>
+                    {!play ? (
+                        <PlayIcon/>
+                    ) : (
+                        <PauseIcon/>
+                    )}
+                </button>
+                <audio ref={ref} loop src={audioFile}/>
+            </div>
             {
                 !isInvited ?
                     (
                         <>
                             <div className="invite-block" onClick={clicked}>
                             </div>
-                            <p className="invite-block-text">Нажмите на конверт, <br /> чтобы открыть приглашение</p>
+                            <p className="invite-block-text">Нажмите на конверт, <br/> чтобы открыть приглашение</p>
                         </>
                     ) : (
                         <main className="main">
-                            <Player/>
                             <section
                                 className={`section section-1`}
                             >
@@ -93,7 +110,8 @@ const ObserverCarousel = () => {
                                             <button className="move-up-btn btn-swipe exclude-swipe"
                                                     onClick={() => moveDown(state)}>перейти вверх
                                             </button>
-                                            <h2 className="section-heading">{headers[1]}</h2>
+                                            <h2 className="section-heading">Пожалуйста <br/> Подтвердите свое присутствие
+                                            </h2>
                                             <InviteForm/>
                                             <button className="move-down-btn btn-swipe"
                                                     onClick={() => moveUp(state)}>перейти вниз
@@ -130,7 +148,7 @@ const ObserverCarousel = () => {
                                             <button className="move-up-btn btn-swipe"
                                                     onClick={() => moveDown(state)}>перейти вверх
                                             </button>
-                                            <h2 className="section-heading">{headers[3]}</h2>
+                                            <h2 className="section-heading">До события осталось:</h2>
                                             <DateTimer/>
                                         </div>
                                     </div>
