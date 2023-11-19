@@ -112,7 +112,7 @@ const ObserverCarousel = () => {
                                             <button className="move-up-btn btn-swipe exclude-swipe"
                                                     onClick={() => moveDown(state)}>перейти вверх
                                             </button>
-                                            <h2 className="section-heading">Ваше участие очень важно для нас <br /> и мы будем очень рады провести <br /> это специальное время с вами.</h2>
+                                            <h2 className="section-heading">Ваше участие очень важно для нас <br /> и мы будем рады провести <br /> это время с вами.</h2>
                                             <InviteForm/>
                                             <button className="move-down-btn btn-swipe"
                                                     onClick={() => moveUp(state)}>перейти вниз
