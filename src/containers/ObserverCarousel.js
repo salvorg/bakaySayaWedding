@@ -131,6 +131,8 @@ const ObserverCarousel = () => {
                                                     onClick={() => moveDown(state)}>перейти вверх
                                             </button>
                                             <h2 className="section-heading">Royal Hall</h2>
+                                            <p>декабрь <span>02</span> 2023</p>
+                                            <p>Начало в <span>17:00</span></p>
                                             <p>Адрес: с.Кок-Жар, ул. Мадиева 18</p>
                                             <MapComponent/>
                                             <button className="move-down-btn btn-swipe"

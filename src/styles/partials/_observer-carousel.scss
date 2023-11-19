@@ -48,6 +48,18 @@ section {
   visibility: hidden;
   color: white;
 
+  p {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+    text-transform: initial;
+    color: hsl(0, 0, 80%);;
+  }
+
+  span {
+    font-size: 2rem;
+    color: orange;
+  }
+
   .outer,
   .inner {
     width: 100%;
