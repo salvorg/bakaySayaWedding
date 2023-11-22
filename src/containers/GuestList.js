@@ -24,9 +24,13 @@ const GuestList = () => {
 
     const deleteGuestHandler = async (id) => {
         try {
-            await axiosApi.delete('/guests/' + id + '.json');
-            alert('deleted');
-            setState(prevState => prevState.filter(item => item.id !== id));
+            const confirmResult = window.confirm('Вы точно хотите удалить этого гостя из списка?');
+
+            if (confirmResult) {
+                await axiosApi.delete('/guests/' + id + '.json');
+                alert('Гость успешно удален из списка');
+                setState(prevState => prevState.filter(item => item.id !== id));
+            }
         } catch (e) {
             throw new Error(e);
         }
@@ -39,7 +43,7 @@ const GuestList = () => {
             {state.map((item) => (
                 <li key={item.id} id={item.id}>
                     <strong>{item.firstName + ' ' + item.lastName}</strong>
-                    <p>{item.pair === '' ? 'не указали' : item.pair}</p>
+                    <p>{item.pair === '' ? 'не указали' : item.pair === 'single' ? 'один/одна' : 'в паре'}</p>
                     <button onClick={() => deleteGuestHandler(item.id)}>удалить</button>
                 </li>
                 ))}

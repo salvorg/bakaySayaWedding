@@ -3,10 +3,16 @@
   display: flex;
   flex-direction: column;
   max-width: 420px;
-  padding: 22px;
+  padding: clamp(1rem, 2vw, 3rem);
   margin: 30px auto;
   border: 1px solid #eee;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  text-transform: initial;
+  color: darkslategray;
+
+  h3 {
+    color: darkslategray;
+  }
 
   & ol {
     font-size: 16px;
@@ -14,15 +20,29 @@
     & p {
       margin: 0;
       padding: 5px;
+      font-style: italic;
     }
 
     & button {
-      margin-bottom: 10px;
+      margin-top: 10px;
       padding: 3px 5px;
-      color: red;
+      color: darkred;
       background-color: white;
       border: 1px solid grey;
       border-radius: 5px;
     }
+
+    li {
+      margin-bottom: 20px;
+      margin-left: 10px;
+    }
+
+    ::marker {
+      content: counters(list-item, '') ': ';
+      font-weight: 700;
+      font-size: 1em;
+      color: darkslategray;
+    }
+
   }
 }
